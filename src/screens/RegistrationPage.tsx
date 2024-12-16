@@ -8,7 +8,7 @@ import { compareOtp, register } from '../actions/userActions';
 import { addPerson } from '../store/Features/userSlice';
 import { useState } from 'react';
 import AuthWrapper from '../shared/auth/auth-wrapper';
-import { Alert, Button, Input, Password, Text, Title } from 'rizzui';
+import {  Button, Input, Password, Text, Title } from 'rizzui';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
@@ -22,10 +22,7 @@ interface FormValues {
 
 const RegistrationPage = () => {
     const navigate: NavigateFunction = useNavigate();
-    const [message, setMessage] = useState<string>('');
     const [id, setId] = useState<string>('');
-    const [date,setDate] = useState(null);
-    const [dateError,setDateError] = useState('');
     const [passwordError,setPasswordError] = useState('');
 
     const [loading, setLoading] = useState<boolean>(false);
@@ -75,9 +72,6 @@ const RegistrationPage = () => {
                 })
             }
             else{
-                if(!date){
-                    setDateError("Date is Required")
-                }
                 setLoading(true);
                 register(values).then((response) => {
                     console.log(response,"wertewfr")
@@ -163,14 +157,10 @@ const RegistrationPage = () => {
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.password}
-                        error={formik.touched.password ?formik.errors.password:''}
+                        error={passwordError}
                     />
                 }
                 </div>
-                
-                {
-                    message && <Alert color='danger' className=''>{message}</Alert>
-                }
                 <Button isLoading={loading} type="submit" className="w-full p-2 mt-4 ">
                 {mailSent?"Verify Otp":"Sign Up"}
                 </Button>

@@ -42,7 +42,7 @@ const CreateNote: React.FC<CreateNoteProps> = ({ onNoteCreated }) => {
       toast.success("Content Autofilled")
     })
     .catch((err)=>{
-      console.error("Failed to create note:", error);
+      console.error("Failed to create note:", err);
       toast.error("An Error Occoured");
     })
     .finally(()=>{

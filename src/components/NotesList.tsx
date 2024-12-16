@@ -41,6 +41,7 @@ const NotesList: React.FC<NotesAppProps> = ({ notes, onDelete }) => {
      shareNote(_id).then((res)=>{
       const shareUrl = `${window.location.origin}/share/${res.sharedId}`; // Generate the shareable link
       setShareLink(shareUrl); // Save the link for modal display or toast
+      console.log(shareLink);
       navigator.clipboard.writeText(shareUrl);
       toast.success(`Shareable lin Copied to Clipboard`);
      }).catch((error)=> {

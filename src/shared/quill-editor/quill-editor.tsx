@@ -1,9 +1,8 @@
 import ReactQuill, { type ReactQuillProps } from 'react-quill';
-import { Button, FieldError } from 'rizzui';
+import {  FieldError } from 'rizzui';
 import 'react-quill/dist/quill.snow.css';
 import { ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { FaPenFancy } from 'react-icons/fa';
 
 interface QuillEditorProps extends ReactQuillProps {
   error?: string;

@@ -1,10 +1,6 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import loginImage from '../assets/AuthPage.jpeg'
-import { NavigateFunction, useNavigate } from 'react-router'
 import { useFormik } from 'formik';
-import { useAppDispatch, useAppSelector } from "../store/store";
-import { compareOtp } from "../actions/userActions";
-import { updatePerson } from "../store/Features/userSlice";
 import AuthWrapper from "../shared/auth/auth-wrapper";
 import {  Button, Input, Text, Title } from "rizzui";
 
@@ -20,12 +16,9 @@ interface FormValues {
 }
 
 const OtpVerification = () => {
-    const navigate: NavigateFunction = useNavigate();
-    const userInfo: UserInfoType = useAppSelector(state => state.person.userInfo)
     const [ loading, setLoading ] = useState<boolean>(false);
     const [message, setMessage ] = useState<string>('');
 
-    const dispatch = useAppDispatch();
    
     
     const formik = useFormik<FormValues>({

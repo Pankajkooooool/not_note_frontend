@@ -7,13 +7,11 @@ import { useFormik } from 'formik';
 import { useAppDispatch } from '../store/store';
 import { compareOtp, login } from '../actions/userActions';
 import { addPerson, userLoginFailed } from '../store/Features/userSlice';
-import Loading from "../components/Loading";
 import { Button, Input, Password, Text, Title} from "rizzui"
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa";
 import AuthWrapper from "../shared/auth/auth-wrapper";
-import { UserInfoType } from "./OtpVerification";
 interface FormValues {
     email: string;
     password: string;
